@@ -1,0 +1,15 @@
+{
+  "en": "English",
+  "pt": "Portuguese",
+  "App": {
+    "enter": "Enter",
+    "thankYou": "Thank You",
+    "openMenu": "Open Menu",
+    "closeMenu": "Close Menu",
+    "wantToKnowMore": "Want to know more about this app?",
+    "readMore": "Read more",
+    "welcome": "Welcome to Roomex Single Page Application",
+    "welcomeText": "Your favorite app for storing your favorite movies.",
+    "start": "Get Started"
+  }
+}
