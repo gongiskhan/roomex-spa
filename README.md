@@ -27,7 +27,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 - **NG Cli for project initialization** - Using the Angular Cli (`ng new`) allowed me to start the project with very basic boilerplate scaffolding crucial for any Angular project. Without it would have to configure webpack for bundling and configure plugins for processing things like SCSS, add TypeScript, Karma, Jasmine and configuration for these, etc... Decided it was not relevant for the purpose of this sample project (as it wouldn't be for a production app either).  
 
 
-- **Material UI** - This component library implementing Google's Material UI design specification is very helpful for providing some out-of-the-box UI components and common functionality seen on webapps. 
+- **Angular Material UI** - This component library implementing Google's Material UI design specification is very helpful for providing some out-of-the-box UI components and common functionality seen on webapps. 
 
 
 - **Talwind CSS** - A modern CSS framework that complements Material UI with more options to customize the UI.

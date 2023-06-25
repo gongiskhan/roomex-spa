@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,15 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'roomex-spa';
   menuOpen = false;
+
+  constructor(private router: Router) {
+
+  }
+
+  navigate(e: Event, to: string) {
+    console.log('to', to);
+    e.preventDefault();
+    this.router.navigateByUrl(`/${to}`);
+    this.menuOpen = false;
+  }
 }

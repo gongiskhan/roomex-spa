@@ -1,1 +1,97 @@
-<p>enter works!</p>
+<div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+
+  <div class="text-center">
+    <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">{{"Enter.title"|transloco}}</h1>
+    <p class="mt-6 text-lg leading-8 text-gray-600">{{"Enter.description"|transloco}}</p>
+  </div>
+
+  <form [formGroup]="form" class="w-full" *ngIf="form" (ngSubmit)="submit()">
+
+    <div class="mt-8 w-full">
+      <mat-form-field class="w-full">
+        <mat-label>{{"Enter.name" | transloco}}</mat-label>
+        <input
+          matInput
+          [formControlName]="'name'"
+        />
+        <mat-error *ngIf="form.controls['name'].hasError('required')">
+          {{"Enter.name" | transloco}}{{"Enter.errors.required"|transloco}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="mt-0">
+      <mat-form-field class="w-full">
+        <mat-label>{{"Enter.username" | transloco}}</mat-label>
+        <input
+          matInput
+          [formControlName]="'username'"
+        />
+        <mat-error *ngIf="form.controls['username'].hasError('email')">
+          {{"Enter.username" | transloco}}{{"Enter.errors.email"|transloco}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="mt-0">
+      <mat-form-field class="w-full">
+        <mat-label>{{"Enter.country" | transloco}}</mat-label>
+        <mat-select [formControlName]="'country'">
+          <mat-option [value]="'ireland'">{{"Enter.ireland"|transloco}}</mat-option>
+          <mat-option [value]="'uk'">{{"Enter.uk"|transloco}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.controls['country'].hasError('required')">
+          {{"Enter.country" | transloco}}{{"Enter.errors.required"|transloco}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="mt-0">
+      <mat-form-field class="w-full">
+        <mat-label>{{"Enter.postCode" | transloco}}</mat-label>
+        <input
+          matInput
+          [formControlName]="'postCode'"
+        />
+        <mat-error *ngIf="form.controls['postCode'].hasError('required')">
+          {{"Enter.postCode" | transloco}}{{"Enter.errors.required"|transloco}}
+        </mat-error>
+        <mat-error *ngIf="form.controls['postCode'].hasError('pattern')">
+          {{"Enter.postCode" | transloco}}{{"Enter.errors.postCode"|transloco}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="mt-0">
+      <mat-form-field class="w-full">
+        <mat-label>{{"Enter.favoriteMovie" | transloco}}</mat-label>
+        <input
+          matInput
+          [placeholder]="'Enter.startTyping'|transloco"
+          [formControlName]="'favoriteMovie'"
+          [matAutocomplete]="auto"
+        />
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectMovie($event)">
+          <mat-option *ngFor="let movie of filteredMovies | async">
+            {{movie}}
+          </mat-option>
+        </mat-autocomplete>
+
+        <mat-error *ngIf="form.controls['favoriteMovie'].hasError('required')">
+          {{"Enter.favoriteMovie" | transloco}}{{"Enter.errors.required"|transloco}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="flex flex-row justify-end mt-8">
+      <button type="submit"
+              mat-flat-button
+              color="primary"
+              class="rounded text-white"
+              [matTooltip]="'Submit'">
+        {{"Enter.submit"|transloco}}
+      </button>
+    </div>
+
+  </form>
+</div>

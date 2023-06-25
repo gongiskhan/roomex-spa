@@ -11,5 +11,28 @@
     "welcome": "Welcome to Roomex Single Page Application",
     "welcomeText": "Your favorite app for storing your favorite movies.",
     "start": "Get Started"
+  },
+  "Enter": {
+    "title": "Favorite Movie",
+    "description": "Please enter your details and let us know what your favorite movie is!",
+    "name": "Name",
+    "username": "Username",
+    "country": "Country",
+    "postCode": "Post Code",
+    "favoriteMovie": "Favorite Movie",
+    "startTyping": "Start Typing",
+    "submit": "Submit",
+    "ireland": "Ireland",
+    "uk": "United Kingdom",
+    "notFound": "Movie Not Found",
+    "errors": {
+      "required": " is mandatory.",
+      "email": " must be a valid e-mail address.",
+      "postCode": " must have a valid post code for the chosen country."
+    }
+  },
+  "Thanks": {
+    "title": "Thank You",
+    "description": "Your data is now submitted as below."
   }
 }

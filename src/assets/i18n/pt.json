@@ -8,8 +8,31 @@
     "closeMenu": "Fechar Menu",
     "wantToKnowMore": "Quer saber mais sobre esta aplicação?",
     "readMore": "Ler mais",
-    "welcome": "Bem-vindos á Aplicação de uma Página Roomex",
+    "welcome": "Bem-vindos à Aplicação de uma Página Roomex",
     "welcomeText": "A sua app favorita para guardar os seus filmes favoritos.",
     "start": "Começar"
+  },
+  "Enter": {
+    "title": "Filme Favorito",
+    "description": "Insere os teus dados e diz-nos qual é o teu filme preferido!",
+    "name": "Nome",
+    "username": "Nome de Utilizador",
+    "country": "País",
+    "postCode": "Código Postal",
+    "favoriteMovie": "Filme Favorito",
+    "startTyping": "Comeca a Escrever",
+    "submit": "Enviar",
+    "ireland": "Irlanda",
+    "uk": "Reino Unido",
+    "notFound": "Filme Não Encontrado",
+    "errors": {
+      "required": " é obrigatório.",
+      "email": " tem de ser um endereço válido.",
+      "postCode": " tem de ser um código postal válido para o país selecionado."
+    }
+  },
+  "Thanks": {
+    "title": "Obrigado",
+    "description": "O teus dados abaixo foram submetidos."
   }
 }
