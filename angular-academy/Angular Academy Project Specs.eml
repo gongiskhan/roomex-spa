@@ -1,0 +1,395 @@
+Delivered-To: goncalo.p.gomes@gmail.com
+Received: by 10.129.78.129 with SMTP id c123csp1875898ywb;
+        Sat, 26 Aug 2017 02:00:19 -0700 (PDT)
+X-Received: by 10.55.31.41 with SMTP id f41mr1105232qkf.195.1503738019688;
+        Sat, 26 Aug 2017 02:00:19 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1503738019; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=UICCHK/8u/M5E/QwHZ89g1mYQ7heo//aIKG9IjDB3EHPKWZ/+fEfmWEurF1CU1qinr
+         NiiWbT9CnlijUzst75AE/yfuyCU78hQ0KIWdyTWx5zJkMEYuVrEMUNbwdVj7WnKzC+SV
+         ljF/GITgA9cvP2BS6PYkBTkrtbZ53XVrdcV6ypt7KgWvYfsr4sHt6CFA0zmAt6d9jKQy
+         SLiQui/5+pAuw7PP7Y2fs2aq4s9auoG4rqGtTtbWZ2dJ6CMBZsN8pXaNGWUTDkIUgmbE
+         BO3m7Gdr2xK/u3IyViTdb4Dv2ILVazO4rOTl8Y04AylU+clqQNzd2Jp+QzVBwPm7bytM
+         n+qQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature
+         :arc-authentication-results:arc-message-signature:delivered-to
+         :arc-authentication-results;
+        bh=gK5cT+HpHCnnvF2bo9br8oj9meaFsJwPbNh/l6PQf20=;
+        b=kSyUI4pPb7LQFqDe2+oaJ8hz7cVzCpcEPf+OQgCFvvBkLxRcbXU0+U8HRqM5c0nBF9
+         LtP+F7/tC5WRIfRYualS0gIctCd3HWcLm+hrivHBMZLT2yy3azCrVCGpfxe7MNiyja8N
+         iC00LTZCu8vyUk5NH7nX0+ndzv/JIYkgkIuXmeY6OI08/Z5wkT8nqYxQZKdrFru8Ew05
+         YmUycxt9RuUjITaXOBFi4D4k2GjRor2T1HJIKrwn2tWX1yKrIBdTdWJqXnOrk6Xe6mpV
+         HzCxC6lEr1lJZTSTfSwaxN43kVNPkJAtbtSLyLKo78zaG0OuHdQsBdTCHZeeGB4LiuC6
+         Cq5w==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@toptal-com.20150623.gappssmtp.com header.s=20150623 header.b=yooa2zkH;
+       arc=pass (i=1 spf=pass spfdomain=toptal.com dkim=pass dkdomain=toptal-com.20150623.gappssmtp.com);
+       spf=pass (google.com: domain of goncalo.gomes+caf_=goncalo.p.gomes=googlemail.com@toptal.com designates 2607:f8b0:400d:c0d::233 as permitted sender) smtp.mailfrom=goncalo.gomes+caf_=goncalo.p.gomes=googlemail.com@toptal.com
+Return-Path: <goncalo.gomes+caf_=goncalo.p.gomes=googlemail.com@toptal.com>
+Received: from mail-qt0-x233.google.com (mail-qt0-x233.google.com. [2607:f8b0:400d:c0d::233])
+        by mx.google.com with ESMTPS id i39si7566626qtb.46.2017.08.26.02.00.19
+        for <goncalo.p.gomes@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 26 Aug 2017 02:00:19 -0700 (PDT)
+Received-SPF: pass (google.com: domain of goncalo.gomes+caf_=goncalo.p.gomes=googlemail.com@toptal.com designates 2607:f8b0:400d:c0d::233 as permitted sender) client-ip=2607:f8b0:400d:c0d::233;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@toptal-com.20150623.gappssmtp.com header.s=20150623 header.b=yooa2zkH;
+       arc=pass (i=1 spf=pass spfdomain=toptal.com dkim=pass dkdomain=toptal-com.20150623.gappssmtp.com);
+       spf=pass (google.com: domain of goncalo.gomes+caf_=goncalo.p.gomes=googlemail.com@toptal.com designates 2607:f8b0:400d:c0d::233 as permitted sender) smtp.mailfrom=goncalo.gomes+caf_=goncalo.p.gomes=googlemail.com@toptal.com
+Received: by mail-qt0-x233.google.com with SMTP id x36so8440289qtx.2
+        for <goncalo.p.gomes@googlemail.com>; Sat, 26 Aug 2017 02:00:19 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:delivered-to:dkim-signature:mime-version:from
+         :date:message-id:subject:to;
+        bh=gK5cT+HpHCnnvF2bo9br8oj9meaFsJwPbNh/l6PQf20=;
+        b=FMH9Dcj3Z3E760Aq7yd6zYUdX9mbNVNlQwp6jBtSQWIDB0jd9vyO2wIzMgl9Q6oJLv
+         WHbn4dd2tNBClRXB5O78wg3h5yDTDVnw7WNKshRD/IWYHpOFn1RClAOaqBXPgLt3bV3b
+         zyVtZKudlNzfLCEw/u7Ecnr6TiulE0LsPIPwq1ShzuKu+fBbkW1ACC0m3rBT4f2M91ca
+         ms2r2sZnrLb4V0X2vyodstFlCCdf88XEm/DDYgpBIIIVu8QCsspzxVQWux+FYhyrlbBn
+         GOAl2C+HvhR8nmzQNhvT0W2ZBcjIFpiZq539Ll0qpqGGHmGgOPJvMH7uA51odKNGtR8J
+         dYCA==
+X-Gm-Message-State: AHYfb5jfM3bqirpTd8Ns85ORQc+E5GiLj/ecREP4CKzeglhSuFKguazX
+	o4Dz1XvGp3d2QZQCOIeAw5zwSOJi2JscTonL3FUiQSSH
+X-Received: by 10.237.48.226 with SMTP id 89mr1310306qtf.297.1503738019072;
+        Sat, 26 Aug 2017 02:00:19 -0700 (PDT)
+X-Forwarded-To: goncalo.p.gomes@googlemail.com
+X-Forwarded-For: goncalo.gomes@toptal.com goncalo.p.gomes@googlemail.com
+Delivered-To: goncalo.gomes@toptal.com
+Received: by 10.200.57.135 with SMTP id v7csp2055082qte;
+        Sat, 26 Aug 2017 02:00:17 -0700 (PDT)
+X-Received: by 10.99.0.18 with SMTP id 18mr1102055pga.87.1503738017904;
+        Sat, 26 Aug 2017 02:00:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1503738017; cv=none;
+        d=google.com; s=arc-20160816;
+        b=Ogu1z5ODYJDi8hYr5s6tLVD6h/t4t7e5U5RDPLgjy5QKWLt2aqPis63pQ/klG/sK2P
+         rQ9GPGGXDLA6H9J8P/3VNVVFQg8cIS8R04ula5j8MGFJVc/x7mLv03loRCzNr9CRaocG
+         umyGO60wzadhlEdfDL4Kwj4g4E/WGqrh3AsSn3iIjEeBFHPQVcMCf5z+7GmxFfS1eObQ
+         z7wMqnz3dx4Ura20NcekRGiba4q0cPtDPNCKtidLvmWl8wFvXYRVYePqmNYySYa/dces
+         dTgZcfFOGYaVKgwl0vp86ndLyYGi/i7K5rTu5OxJr40s5Ugq3jHEoL5oNdnA5ZpV9ddU
+         Mgow==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature
+         :arc-authentication-results;
+        bh=gK5cT+HpHCnnvF2bo9br8oj9meaFsJwPbNh/l6PQf20=;
+        b=oZ0cGiItloI5hfnlVh4pq7nHHG/T27Yb7QDq1kthXsFYN76OTFDIpaaV7h7dTfQ7rH
+         n2I+CVpqU7gzojC6x0DRcPYR+SksOc3en5spNf40STlyNS2fxSNGJg1XULlVuCJBhRbw
+         YMj2MzlLoCSSpcW02DJctvyNXO92qr5vGSpoqmN/5xiJIkWYc4ruJHg9ab6mOt0ZhTJ+
+         1NQIvQCiW0p7TduUkJ85bNl30umsKJioKUK3VrjTUjiNcRXFtNRCR6Z3xXg5lGtnYpXg
+         4cfuajMzK3PPcvuizispWlj7puQu8D+s4/lPZdnSRhjrLvF8Fh2c6U8V9dW7pnQIVzKT
+         33rA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@toptal-com.20150623.gappssmtp.com header.s=20150623 header.b=yooa2zkH;
+       spf=pass (google.com: domain of marco@toptal.com designates 2607:f8b0:400e:c05::233 as permitted sender) smtp.mailfrom=marco@toptal.com
+Return-Path: <marco@toptal.com>
+Received: from mail-pg0-x233.google.com (mail-pg0-x233.google.com. [2607:f8b0:400e:c05::233])
+        by mx.google.com with ESMTPS id h130si6115470pfc.585.2017.08.26.02.00.17
+        for <goncalo.gomes@toptal.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 26 Aug 2017 02:00:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of marco@toptal.com designates 2607:f8b0:400e:c05::233 as permitted sender) client-ip=2607:f8b0:400e:c05::233;
+Received: by mail-pg0-x233.google.com with SMTP id b8so9247251pgn.5
+        for <goncalo.gomes@toptal.com>; Sat, 26 Aug 2017 02:00:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=toptal-com.20150623.gappssmtp.com; s=20150623;
+        h=mime-version:from:date:message-id:subject:to;
+        bh=gK5cT+HpHCnnvF2bo9br8oj9meaFsJwPbNh/l6PQf20=;
+        b=yooa2zkHQB5Bs+97uDL40q9t1BjTpJqHgaEFqhURpxGaDadBsVboCkqkggUF4zs2DR
+         97MUCKqUZV7drVE7Xn9WLjH6M1MnTHIMt8IQie2uem8x5XTffwRhB7ACnnR1BJeLWrSu
+         eGwPjAJfmouPSKq4kjjnA6/YnkkfzWjFvg3spRVSW3eaKYn6PnoTk8w3OEVX3opjIPF1
+         TSDd0GtdOfb3uf8ZLvbnmX+kdbKYBMjTckRD94g6JxS1Pc7ZhC6Ku2bKOanLFvgYzD4p
+         ueC7SDj/CyMosqsdNs0L8dI7JBdUwD+dtnqxlUu0KxJeF1iPhU0trDmLgLkYxvI8WsE5
+         L+hA==
+X-Received: by 10.84.142.129 with SMTP id 1mr1284301plx.179.1503738009936;
+ Sat, 26 Aug 2017 02:00:09 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 10.100.151.138 with HTTP; Sat, 26 Aug 2017 02:00:09 -0700 (PDT)
+From: Marco Vega <marco@toptal.com>
+Date: Sat, 26 Aug 2017 04:00:09 -0500
+Message-ID: <CAPBYhte4i152n_NaH0uk+khu4hk2+Xh56Cma906uGMkDaSGyvQ@mail.gmail.com>
+Subject: Angular Academy Project Specs
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="94eb2c11ac20eb05410557a44900"
+Bcc: goncalo.gomes@toptal.com
+
+--94eb2c11ac20eb05410557a44900
+Content-Type: text/plain; charset="UTF-8"
+
+Hello, Toptalers!
+
+The wait is over and the challenge is ready. This spec is being sent to all
+of the Toptalers who applied to the Angular Academy.
+
+App: *Write the front-end of an e-commerce website*
+Project deadline: *September 11th, 2017 6:00 PM Eastern Time*
+
+*Specifications*
+
+Use Angular 2+ to build an e-commerce site with user registration
+(registration/auth mocking is permitted), product catalog, authentication,
+and roles.
+
+
+   -
+
+   User can register at any time to the store (registration/auth mocking is
+   permitted)
+   -
+
+      Recaptcha on user registration
+      -
+
+   Three types of roles: admin, manager, user
+   -
+
+      Admin
+      -
+
+         Can *CRUD (Create, Read, Update, Delete)* users
+         -
+
+         Can assign/remove roles to users
+         -
+
+         Can *CRUD* products
+         -
+
+         Can *RD* orders
+         -
+
+      Manager
+      -
+
+         Can *CRU* products
+         -
+
+         Can *R* orders
+         -
+
+         Can change status of an order
+         -
+
+      User
+      -
+
+         Can *CR* orders
+         -
+
+         Update Profile
+         -
+
+            Billing Address
+            -
+
+            Shipping Address
+            -
+
+   Order checkout
+   -
+
+      Ability to add different products and different quantities to the cart
+      -
+
+      Payment using PayPal or Stripe Sandboxes
+
+
+*Technical requirements*
+
+
+   -
+
+   You can use a service like Firebase to power the backend of your
+   application, alternatively, you can create your own with your language of
+   preference.
+   -
+
+   Use Ngrx to manage the state.
+   -
+
+   You can use third party UI libraries.
+   -
+
+   Separate modules for User/Admin+Manager supporting Lazy Loading.
+
+
+*Control version*
+
+You will be sent a GitLab invitation next week, in the meantime remember to
+start your git repository and constantly commit your code. One commit
+projects are not allowed.
+
+If you have any questions, please send me a private message. If you have
+technical questions, #angular-academy or #_angular would be a good place to
+start.
+
+Happy coding!
+
+-- 
+Marco Vega, Online Community Lead || Toptal || +57.316.378.8147 (mobile) ||
+marcovega. (Skype)
+
+--94eb2c11ac20eb05410557a44900
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Hello, Toptalers!<div><br></div><div><div style=3D"font-si=
+ze:12.8px">The wait is over and the challenge is ready. This spec is being =
+sent to all of the Toptalers who applied to the Angular Academy.</div><div>=
+<br></div><div><div style=3D"font-size:12.8px">App:=C2=A0<b>Write the front=
+-end of an e-commerce website</b></div><div style=3D"font-size:12.8px">Proj=
+ect deadline:=C2=A0<b>September 11th, 2017 6:00 PM Eastern Time</b></div></=
+div><div style=3D"font-size:12.8px"><b><br></b></div><div><span id=3D"gmail=
+-docs-internal-guid-334154f1-1dbb-55e0-dba6-c40d1af24584"><p dir=3D"ltr" st=
+yle=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt"><span style=3D"fo=
+nt-family:Arial;color:rgb(0,0,0);background-color:transparent;vertical-alig=
+n:baseline;white-space:pre-wrap"><b>Specifications</b></span></p><br><p dir=
+=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt"><span =
+style=3D"font-family:Arial;color:rgb(0,0,0);background-color:transparent;ve=
+rtical-align:baseline;white-space:pre-wrap">Use Angular 2+ to build an e-co=
+mmerce site with user registration (registration/auth mocking is permitted)=
+, product catalog, authentication, and roles.</span></p><br><ul style=3D"ma=
+rgin-top:0pt;margin-bottom:0pt"><li dir=3D"ltr" style=3D"list-style-type:di=
+sc;font-family:Arial;color:rgb(0,0,0);background-color:transparent;vertical=
+-align:baseline"><p dir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;ma=
+rgin-bottom:0pt"><span style=3D"background-color:transparent;vertical-align=
+:baseline;white-space:pre-wrap">User can register at any time to the store =
+</span><span style=3D"background-color:transparent">(registration/auth mock=
+ing is permitted)</span></p></li><ul style=3D"margin-top:0pt;margin-bottom:=
+0pt"><li dir=3D"ltr" style=3D"list-style-type:disc;font-family:Arial;color:=
+rgb(0,0,0);background-color:transparent;vertical-align:baseline"><p dir=3D"=
+ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt"><span styl=
+e=3D"background-color:transparent;vertical-align:baseline;white-space:pre-w=
+rap">Recaptcha on user registration</span></p></li></ul><li dir=3D"ltr" sty=
+le=3D"list-style-type:disc;font-family:Arial;color:rgb(0,0,0);background-co=
+lor:transparent;vertical-align:baseline"><p dir=3D"ltr" style=3D"line-heigh=
+t:1.38;margin-top:0pt;margin-bottom:0pt"><span style=3D"background-color:tr=
+ansparent;vertical-align:baseline;white-space:pre-wrap">Three types of role=
+s: admin, manager, user</span></p></li><ul style=3D"margin-top:0pt;margin-b=
+ottom:0pt"><li dir=3D"ltr" style=3D"list-style-type:disc;font-family:Arial;=
+color:rgb(0,0,0);background-color:transparent;vertical-align:baseline"><p d=
+ir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt"><spa=
+n style=3D"background-color:transparent;vertical-align:baseline;white-space=
+:pre-wrap">Admin</span></p></li><ul style=3D"margin-top:0pt;margin-bottom:0=
+pt"><li dir=3D"ltr" style=3D"list-style-type:disc;font-family:Arial;color:r=
+gb(0,0,0);background-color:transparent;vertical-align:baseline"><p dir=3D"l=
+tr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt"><span style=
+=3D"background-color:transparent;vertical-align:baseline;white-space:pre-wr=
+ap">Can <u>CRUD (Create, Read, Update, Delete)</u> users</span></p></li><li=
+ dir=3D"ltr" style=3D"list-style-type:disc;font-family:Arial;color:rgb(0,0,=
+0);background-color:transparent;vertical-align:baseline"><p dir=3D"ltr" sty=
+le=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt"><span style=3D"bac=
+kground-color:transparent;vertical-align:baseline;white-space:pre-wrap">Can=
+ assign/remove roles to users</span></p></li><li dir=3D"ltr" style=3D"list-=
+style-type:disc;font-family:Arial;color:rgb(0,0,0);background-color:transpa=
+rent;vertical-align:baseline"><p dir=3D"ltr" style=3D"line-height:1.38;marg=
+in-top:0pt;margin-bottom:0pt"><span style=3D"background-color:transparent;v=
+ertical-align:baseline;white-space:pre-wrap">Can <u>CRUD</u> products</span=
+></p></li><li dir=3D"ltr" style=3D"list-style-type:disc;font-family:Arial;c=
+olor:rgb(0,0,0);background-color:transparent;vertical-align:baseline"><p di=
+r=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt"><span=
+ style=3D"background-color:transparent;vertical-align:baseline;white-space:=
+pre-wrap">Can <u>RD</u> orders</span></p></li></ul><li dir=3D"ltr" style=3D=
+"list-style-type:disc;font-family:Arial;color:rgb(0,0,0);background-color:t=
+ransparent;vertical-align:baseline"><p dir=3D"ltr" style=3D"line-height:1.3=
+8;margin-top:0pt;margin-bottom:0pt"><span style=3D"background-color:transpa=
+rent;vertical-align:baseline;white-space:pre-wrap">Manager</span></p></li><=
+ul style=3D"margin-top:0pt;margin-bottom:0pt"><li dir=3D"ltr" style=3D"list=
+-style-type:disc;font-family:Arial;color:rgb(0,0,0);background-color:transp=
+arent;vertical-align:baseline"><p dir=3D"ltr" style=3D"line-height:1.38;mar=
+gin-top:0pt;margin-bottom:0pt"><span style=3D"background-color:transparent;=
+vertical-align:baseline;white-space:pre-wrap">Can <u>CRU</u> products</span=
+></p></li><li dir=3D"ltr" style=3D"list-style-type:disc;font-family:Arial;c=
+olor:rgb(0,0,0);background-color:transparent;vertical-align:baseline"><p di=
+r=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt"><span=
+ style=3D"background-color:transparent;vertical-align:baseline;white-space:=
+pre-wrap">Can <u>R</u> orders</span></p></li><li dir=3D"ltr" style=3D"list-=
+style-type:disc;font-family:Arial;color:rgb(0,0,0);background-color:transpa=
+rent;vertical-align:baseline"><p dir=3D"ltr" style=3D"line-height:1.38;marg=
+in-top:0pt;margin-bottom:0pt"><span style=3D"background-color:transparent;v=
+ertical-align:baseline;white-space:pre-wrap">Can change status of an order<=
+/span></p></li></ul><li dir=3D"ltr" style=3D"list-style-type:disc;font-fami=
+ly:Arial;color:rgb(0,0,0);background-color:transparent;vertical-align:basel=
+ine"><p dir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:=
+0pt"><span style=3D"background-color:transparent;vertical-align:baseline;wh=
+ite-space:pre-wrap">User</span></p></li><ul style=3D"margin-top:0pt;margin-=
+bottom:0pt"><li dir=3D"ltr" style=3D"list-style-type:disc;font-family:Arial=
+;color:rgb(0,0,0);background-color:transparent;vertical-align:baseline"><p =
+dir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt"><sp=
+an style=3D"background-color:transparent;vertical-align:baseline;white-spac=
+e:pre-wrap">Can <u>CR</u> orders</span></p></li><li dir=3D"ltr" style=3D"li=
+st-style-type:disc;font-family:Arial;color:rgb(0,0,0);background-color:tran=
+sparent;vertical-align:baseline"><p dir=3D"ltr" style=3D"line-height:1.38;m=
+argin-top:0pt;margin-bottom:0pt"><span style=3D"background-color:transparen=
+t;vertical-align:baseline;white-space:pre-wrap">Update Profile</span></p></=
+li><ul style=3D"margin-top:0pt;margin-bottom:0pt"><li dir=3D"ltr" style=3D"=
+list-style-type:disc;font-family:Arial;color:rgb(0,0,0);background-color:tr=
+ansparent;vertical-align:baseline"><p dir=3D"ltr" style=3D"line-height:1.38=
+;margin-top:0pt;margin-bottom:0pt"><span style=3D"background-color:transpar=
+ent;vertical-align:baseline;white-space:pre-wrap">Billing Address</span></p=
+></li><li dir=3D"ltr" style=3D"list-style-type:disc;font-family:Arial;color=
+:rgb(0,0,0);background-color:transparent;vertical-align:baseline"><p dir=3D=
+"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt"><span sty=
+le=3D"background-color:transparent;vertical-align:baseline;white-space:pre-=
+wrap">Shipping Address</span></p></li></ul></ul></ul><li dir=3D"ltr" style=
+=3D"list-style-type:disc;font-family:Arial;color:rgb(0,0,0);background-colo=
+r:transparent;vertical-align:baseline"><p dir=3D"ltr" style=3D"line-height:=
+1.38;margin-top:0pt;margin-bottom:0pt"><span style=3D"background-color:tran=
+sparent;vertical-align:baseline;white-space:pre-wrap">Order checkout</span>=
+</p></li><ul style=3D"margin-top:0pt;margin-bottom:0pt"><li dir=3D"ltr" sty=
+le=3D"list-style-type:disc;font-family:Arial;color:rgb(0,0,0);background-co=
+lor:transparent;vertical-align:baseline"><p dir=3D"ltr" style=3D"line-heigh=
+t:1.38;margin-top:0pt;margin-bottom:0pt"><span style=3D"background-color:tr=
+ansparent;vertical-align:baseline;white-space:pre-wrap">Ability to add diff=
+erent products and different quantities to the cart</span></p></li><li dir=
+=3D"ltr" style=3D"list-style-type:disc;font-family:Arial;color:rgb(0,0,0);b=
+ackground-color:transparent;vertical-align:baseline"><p dir=3D"ltr" style=
+=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt"><span style=3D"backg=
+round-color:transparent;vertical-align:baseline;white-space:pre-wrap">Payme=
+nt using PayPal or Stripe Sandboxes</span></p></li></ul></ul><br><p dir=3D"=
+ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt"><span styl=
+e=3D"font-family:Arial;color:rgb(0,0,0);background-color:transparent;vertic=
+al-align:baseline;white-space:pre-wrap"><b>Technical requirements</b></span=
+></p><br><ul style=3D"margin-top:0pt;margin-bottom:0pt"><li dir=3D"ltr" sty=
+le=3D"list-style-type:disc;font-family:Arial;color:rgb(0,0,0);background-co=
+lor:transparent;vertical-align:baseline"><p dir=3D"ltr" style=3D"line-heigh=
+t:1.38;margin-top:0pt;margin-bottom:0pt"><span style=3D"background-color:tr=
+ansparent;vertical-align:baseline;white-space:pre-wrap">You can use a servi=
+ce like Firebase to power the backend of your application, alternatively, y=
+ou can create your own with your language of preference.</span></p></li><li=
+ dir=3D"ltr" style=3D"list-style-type:disc;font-family:Arial;color:rgb(0,0,=
+0);background-color:transparent;vertical-align:baseline"><p dir=3D"ltr" sty=
+le=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt"><span style=3D"bac=
+kground-color:transparent;vertical-align:baseline;white-space:pre-wrap">Use=
+ Ngrx to manage the state.</span></p></li><li dir=3D"ltr" style=3D"list-sty=
+le-type:disc;font-family:Arial;color:rgb(0,0,0);background-color:transparen=
+t;vertical-align:baseline"><p dir=3D"ltr" style=3D"line-height:1.38;margin-=
+top:0pt;margin-bottom:0pt"><span style=3D"background-color:transparent;vert=
+ical-align:baseline;white-space:pre-wrap">You can use third party UI librar=
+ies.</span></p></li><li dir=3D"ltr" style=3D"list-style-type:disc;font-fami=
+ly:Arial;color:rgb(0,0,0);background-color:transparent;vertical-align:basel=
+ine"><p dir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:=
+0pt"><span style=3D"background-color:transparent;vertical-align:baseline;wh=
+ite-space:pre-wrap">Separate modules for User/Admin+Manager supporting Lazy=
+ Loading.</span></p></li></ul><div><font color=3D"#000000" face=3D"Arial"><=
+span style=3D"white-space:pre-wrap"><br></span></font></div><div><font colo=
+r=3D"#000000" face=3D"Arial"><span style=3D"white-space:pre-wrap"><b>Contro=
+l version</b></span></font></div><div><font color=3D"#000000" face=3D"Arial=
+"><span style=3D"white-space:pre-wrap"><b><br></b></span></font></div><div>=
+<font color=3D"#000000" face=3D"Arial"><span style=3D"white-space:pre-wrap"=
+>You will be sent a GitLab invitation next week, in the meantime remember t=
+o start your git repository and constantly commit your code. One commit pro=
+jects are not allowed.</span></font></div><div><font color=3D"#000000" face=
+=3D"Arial"><span style=3D"white-space:pre-wrap"><br></span></font></div><di=
+v><font color=3D"#000000" face=3D"Arial"><span style=3D"white-space:pre-wra=
+p">If you have any questions, please send me a private message. If you have=
+ technical questions, #angular-academy or #_angular would be a good place t=
+o start.</span></font></div><div><font color=3D"#000000" face=3D"Arial"><sp=
+an style=3D"white-space:pre-wrap"><br></span></font></div><div><font color=
+=3D"#000000" face=3D"Arial"><span style=3D"white-space:pre-wrap">Happy codi=
+ng!</span></font></div></span></div><div><br></div>-- <br><div class=3D"gma=
+il_signature"><div dir=3D"ltr">Marco Vega, Online Community Lead || Toptal =
+|| +57.316.378.8147 (mobile) || marcovega. (Skype)<br></div></div>
+</div></div>
+
+--94eb2c11ac20eb05410557a44900--

@@ -8,7 +8,7 @@
     "closeMenu": "Close Menu",
     "wantToKnowMore": "Want to know more about this app?",
     "readMore": "Read more",
-    "welcome": "Welcome to Roomex Single Page Application",
+    "welcome": "Welcome to Roomex SPA",
     "welcomeText": "Your favorite app for storing your favorite movies.",
     "start": "Get Started"
   },
@@ -33,6 +33,12 @@
   },
   "Thanks": {
     "title": "Thank You",
-    "description": "Your data is now submitted as below."
+    "description": "Your data is now submitted as below.",
+    "name": "Name",
+    "username": "Username",
+    "country": "Country",
+    "postCode": "Post Code",
+    "favoriteMovie": "Favorite Movie",
+    "noData": "No Data Yet."
   }
 }

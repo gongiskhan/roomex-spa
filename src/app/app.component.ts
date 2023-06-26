@@ -15,7 +15,6 @@ export class AppComponent {
   }
 
   navigate(e: Event, to: string) {
-    console.log('to', to);
     e.preventDefault();
     this.router.navigateByUrl(`/${to}`);
     this.menuOpen = false;

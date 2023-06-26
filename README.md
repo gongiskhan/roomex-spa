@@ -38,6 +38,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 - **NGRX** - A state management framework to ensure that when scaling (as required) state is handled in a way that is quickly gathered, reproducible, and debuggable, and that, as more features are added to this app which does not have a closed scope (again, as specified), we maintain a well-defined structure that developers versed in this common technology can quickly understand the architecture of the app and "hit the ground running".
 
+*Note about the certification in NGRX:* I mentioned the certification in the interview and have added the certificate and course content on the `angular-academy` folder of this project. However, this was back in 2017, and the professional experience I had with ngrx was soon after it. So, while working on this project I realised I have forgotten a lot about ngrx and that it changed quite a bit. I wanted to note this to explain why I might not be able to reply to advanced questions about this topic.
 
 - **Transloco** - A i18n library that is easier to work with, more flexible and more comprehensive than Angular's localize.
 

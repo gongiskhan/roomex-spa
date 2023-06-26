@@ -33,6 +33,12 @@
   },
   "Thanks": {
     "title": "Obrigado",
-    "description": "O teus dados abaixo foram submetidos."
+    "description": "O teus dados abaixo foram submetidos.",
+    "name": "Nome",
+    "username": "Nome de Utilizador",
+    "country": "País",
+    "postCode": "Código Postal",
+    "favoriteMovie": "Filme Favorito",
+    "noData": "Ainda sem dados."
   }
 }

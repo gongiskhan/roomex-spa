@@ -4,5 +4,29 @@
     <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">{{"Thanks.title"|transloco}}</h1>
     <p class="mt-6 text-lg leading-8 text-gray-600">{{"Thanks.description"|transloco}}</p>
   </div>
-
+  <div class="p-4 flex flex-col items-start w-full" *ngIf="user && user.name">
+    <div class="flex m-2">
+      <span class="text-lg font-bold w-[8em]">{{"Thanks.name"|transloco}}: </span>
+      <span class="text-base text-gray">{{user.name}}</span>
+    </div>
+    <div class="flex m-2">
+      <span class="text-lg font-bold w-[8em]">{{"Thanks.username"|transloco}}: </span>
+      <span class="text-base text-gray">{{user.username}}</span>
+    </div>
+    <div class="flex m-2">
+      <span class="text-lg font-bold w-[8em]">{{"Thanks.country"|transloco}}: </span>
+      <span class="text-base text-gray">{{user.country}}</span>
+    </div>
+    <div class="flex m-2">
+      <span class="text-lg font-bold w-[8em]">{{"Thanks.postCode"|transloco}}: </span>
+      <span class="text-base text-gray">{{user.postCode}}</span>
+    </div>
+    <div class="flex m-2">
+      <span class="text-lg font-bold w-[8em]">{{"Thanks.favoriteMovie"|transloco}}: </span>
+      <span class="text-base text-gray">{{user.favoriteMovie}}</span>
+    </div>
+  </div>
+  <div class="p-4 flex flex-col items-start w-full text-center" *ngIf="!user?.name">
+    <p>{{"Thanks.noData"|transloco}}</p>
+  </div>
 </div>
