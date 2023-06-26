@@ -14,7 +14,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Run `ng e2e` to execute the end-to-end tests via Cypress
 
 ## Build
 
@@ -43,11 +43,11 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 - **Transloco** - A i18n library that is easier to work with, more flexible and more comprehensive than Angular's localize.
 
 
-- **Cypress** - A e2e testing framework, that, at least from my experience working with both, is easier to work with and more robust than Protactor.
+- **Cypress** - A e2e testing framework, that, at least from my experience working with testing frameworks, is easier to work with and more robust than Protactor and more complete (UI wise) than Jasmine.
 
 
 ## Documentation
 
 **NONE!!** 
 
-I believe that code should be intuitive and that developers should strive to learn what the common and best practises are so that other developers can understand they're code intuitively without the need for it to be explained with a description.
+I believe that code should be intuitive and that developers should strive to learn what the common and best practises are and use them so that other developers can understand they're code intuitively without the need for it to be explained with comments and descriptions.

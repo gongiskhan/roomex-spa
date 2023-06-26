@@ -39,6 +39,8 @@
     "country": "Country",
     "postCode": "Post Code",
     "favoriteMovie": "Favorite Movie",
-    "noData": "No Data Yet."
+    "noData": "No Data Yet.",
+    "ireland": "Ireland",
+    "uk": "United Kingdom"
   }
 }

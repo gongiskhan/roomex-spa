@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import {WelcomeComponent} from './welcome/welcome.component';
 import {EnterComponent} from './enter/enter.component';
 import {ThanksComponent} from './thanks/thanks.component';
+import {TranslocoModule} from '@ngneat/transloco';
+import {TranslocoRootModule} from './transloco-root.module';
 
 const routes: Routes = [
   {
@@ -24,7 +26,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), TranslocoRootModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
